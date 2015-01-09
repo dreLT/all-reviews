@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html ng-app="DrePong">
+<html ng-app="AllReviews">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Bloc Base Project</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body ng-controller="landingController">
-abc
-    <script src="/js/app.js"></script>
+<body ng-controller="SearchController">
+  <div id="search">
+    <input ng-model="query" placeholder="search" ng-keyup="$event.keyCode == 13 && executeSearch()">
+    <div class="movies">
+        {{ movies.results }}
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
+  <script src="/js/app.js"></script>
 </body>
 </html>
+
+<!-- <div class="movies" <!--ng-repeat="movie in movies" ng-click="openRepo(movie.full_name)"> -->
