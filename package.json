@@ -10,7 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "hapi": "^7.5.0",
-    "path": "^0.4.9"
+    "lodash": "^2.4.1",
+    "path": "^0.4.9",
+    "request": "^2.51.0",
+    "when": "^3.6.4"
   },
   "devDependencies": {
     "browserify": "^4.2.3",
