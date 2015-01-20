@@ -43,11 +43,12 @@ var Hapi = require('hapi'),
         //    }
         //  }
         //},
-        nytimes: {
+        movies: {
           method: 'POST',
-          path: '/api',
-          handler: getFeeds
+          path: '/api/movies',
+          handler: getMovies
         },
+
         spa: {
           method: 'GET',
           path: '/{path*}',
@@ -57,33 +58,41 @@ var Hapi = require('hapi'),
         }
     };
 
-    server.route([ routes.css, routes.js, routes.images, routes.templates, routes.nytimes, routes.spa ]);
+    server.route([ routes.css, routes.js, routes.images, routes.templates, routes.movies, routes.spa ]);
     server.start( onServerStarted );
 
-    function getFeeds(req, reply) {
-      var searcher = new Searcher();
+    var searcher = new Searcher();
 
-      searcher.add(ProviderFactory.build('nytimes', {
-        hostname: 'api.nytimes.com',
-        basepath: '/svc/movies/v2/reviews/search.json',
-        apiKey: 'ddb559a750ed89a31dc492e01db33c1f:5:70698674'
-      }));
+    searcher.add(ProviderFactory.build('nytimes', {
+      hostname: 'api.nytimes.com',
+      basepath: '/svc/movies/v2/reviews/search.json',
+      apiKey: 'ddb559a750ed89a31dc492e01db33c1f:5:70698674'
+    }));
 
-      searcher.add(ProviderFactory.build('usatoday', {
-        hostname: 'api.usatoday.com',
-        basepath: '/open/reviews/movies/movies',
-        apiKey: '7p665vjpvsn2drnk6w347x5w'
-      }));
+    searcher.add(ProviderFactory.build('usatoday', {
+      hostname: 'api.usatoday.com',
+      basepath: '/open/reviews/movies/movies',
+      apiKey: '7p665vjpvsn2drnk6w347x5w'
+    }));
 
-      searcher.search(req.payload.query).then(
+    searcher.add(ProviderFactory.build('rottentomatoes', {
+      hostname: 'api.rottentomatoes.com',
+      basepath: '/api/public/v1.0/movies.json',
+      apiKey: 'dhg9yayq89br5gwynsq5f7hr'
+    }));
+
+    function getMovies(req, reply) {
+      if (req.query.details === undefined) {
+        req.query.details = 'false';
+      }
+      searcher.search(req.payload.query, req.query.details).then(
         function pass(items) {
-        reply(items);
-      },
-      function fail(err) {
-        console.log(err);
+          reply(items);
+        },
+        function fail(err) {
+          console.log(err);
       });
     }
-
 
 
     function onServerStarted() {
