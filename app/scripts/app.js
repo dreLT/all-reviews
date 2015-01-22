@@ -11,11 +11,6 @@ app.controller('SearchController', function SearchController($scope, MoviesServi
           $scope.movies = data;
         }
     });
-  
-    $scope.reviewsRequested = false;
-    $scope.requestReviews = function () {
-      $scope.reviewsRequested = true;
-    }
   }
 
   $scope.getReviews = function getReviews(title) {
@@ -23,14 +18,11 @@ app.controller('SearchController', function SearchController($scope, MoviesServi
     MoviesService.keywordSearch(title, 'true', function(error, data) {
         if (!error) {
           console.log(data);
-          $scope.movies = data;
+          $scope.reviews = data;
+          console.log(title);
+          $scope.clickedMovieTitle = title;
         }
     });
-  
-    // $scope.reviewsRequested = false;
-    // $scope.requestReviews = function () {
-    //   $scope.reviewsRequested = true;
-    // }
   }
 
 });
@@ -39,7 +31,11 @@ app.controller('SearchController', function SearchController($scope, MoviesServi
 app.factory('MoviesService', ['$http', function($http) {
     return {
         keywordSearch: function(query, details, callback) {
+          console.log(details);
           var requestURI = '/api/movies';
+          if (details === 'true') {
+            requestURI += '?details=true'
+          }
         $http.post(requestURI, {query: query})
           .success(function (data) {
               callback(null, data);
@@ -84,21 +80,3 @@ app.filter('unique', function(){
       return output;
    };
 })
-
-// app.filter('filterReviews', function(){
-//  return function(collection, keyname1, keyname2) {
-//       var output = [], 
-//           keys = [];
-
-//       angular.forEach(collection, function(item) {
-//           var key1 = item[keyname1];
-//           var key2 = item[keyname2];
-//           if( (keys.indexOf(key1) === -1) && (keys.indexOf(key2) === -1) ) {
-//               keys.push(key1); keys.push(key2);
-//               output.push(item);
-//           }
-//       });
-
-//       return output;
-//    };
-// })

@@ -8,13 +8,17 @@
 <body ng-controller="SearchController">
   <div id="search">
     <input ng-model="query" placeholder="search" ng-keyup="$event.keyCode == 13 && executeSearch()">
-    <div class="movies" ng-repeat="movie in movies | unique: 'title'" ng-click="requestReviews()">
+    <div class="movies" ng-repeat="movie in movies | unique: 'title'">
         <a href="#" ng-click="getReviews(movie.title)">{{ movie.title }} - {{ movie.provider }}</a>
     </div>
   </div>
   <div id="reviews">
-    <div ng-show="reviewsRequested">
-      <p>Testing</p>
+    <!-- <p class="reviews-heading">Reviews for {{ review.title }}</p> -->
+    <div ng-repeat="review in reviews | filter:{title:clickedMovieTitle}:true">
+      <h2>{{ review.provider }}</h2>
+      <span>{{ review.reviewDate }}</span>
+      <p>{{ review.link.text }}</p>
+      <p>{{ review.link.url }}</p>
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
