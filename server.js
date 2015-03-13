@@ -69,11 +69,11 @@ var Hapi = require('hapi'),
       apiKey: 'ddb559a750ed89a31dc492e01db33c1f:5:70698674'
     }));
 
-    // searcher.add(ProviderFactory.build('usatoday', {
-    //   hostname: 'api.usatoday.com',
-    //   basepath: '/open/reviews/movies/movies',
-    //   apiKey: '7p665vjpvsn2drnk6w347x5w'
-    // }));
+    searcher.add(ProviderFactory.build('usatoday', {
+      hostname: 'api.usatoday.com',
+      basepath: '/open/reviews/movies/movies',
+      apiKey: '7p665vjpvsn2drnk6w347x5w'
+    }));
 
     searcher.add(ProviderFactory.build('rottentomatoes', {
       hostname: 'api.rottentomatoes.com',
