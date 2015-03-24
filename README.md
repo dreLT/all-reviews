@@ -1,8 +1,8 @@
 # All Reviews
 
-All Reviews is a web app for finding movie reviews. Users can search by movie title, view a list of reviews for that movie, and go to the URL of the actual review. Currently the app compiles review data from three APIs: *The New York Times*, *Rotten Tomatoes*, and *USAToday*.
+All Reviews is a web app for finding movie reviews. Users can search by movie title and view a list of reviews for that movie along with URLs of the actual reviews. Currently the app compiles review data from three APIs: *The New York Times*, *Rotten Tomatoes*, and *USAToday*.
 
-The live app can be viewed here: [https://ll-reviews.herokuapp.com/](https://ll-reviews.herokuapp.com/)
+The live app can be viewed here: [https://all-reviews.herokuapp.com/](https://all-reviews.herokuapp.com/)
 
 *Note:* This app is still in the works! See 'Progress' section below.
 
