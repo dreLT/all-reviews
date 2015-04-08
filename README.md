@@ -2,7 +2,8 @@
 
 All Reviews is a web app for finding movie reviews. Users can search by movie title and view a list of reviews for that movie along with URLs of the actual reviews. Currently the app compiles review data from three APIs: *The New York Times*, *Rotten Tomatoes*, and *USAToday*.
 
-The live app can be viewed here: [https://all-reviews.herokuapp.com/](https://all-reviews.herokuapp.com/)
+The live app can be viewed here: [https://all-reviews.herokuapp.com/](https://all-reviews.herokuapp.com/)  
+Enter a movie title in the input area and push enter. After a second or search results will appear; click a title to see a list of reviews on the right.
 
 *Note:* This app is still in the works! See 'Progress' section below.
 
@@ -63,10 +64,10 @@ dist/
 
 ## Progress
 
-### Issues
+### To Do
 * There is an issue connecting to Rotten Tomatoes API; Rotten Tomatoes API review data is not displaying in the view
 * App needs styling for a nicer look and better user experience
 
-### Wish LIst
+### Wish List
 * Loading animations for loading times when APIs are called
-* In addition to links to movie data, The Rotten Tomatoes API also provides basic info for all of the movies in it's database, including movie posters (as image files). It would be great to integrate this info, perhaps as in the header area or a third column, showing the movie poster and some basic facts (date, production company, director, main actors, etc) once a movie title is clicked.
+* In addition to links to movie reviews, the Rotten Tomatoes API provides additional info for all of the movies in it's database, including movie posters. It would be great to also get this data and display the queried movie's poster and some basic facts (date, production company, director, main actors, etc).
