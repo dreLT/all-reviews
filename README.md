@@ -50,7 +50,8 @@ app/
 `scripts/__app.js` File containing all AngularJS functionality  
 `templates/__home.html` For HTML partials or smaller sets of HTML (currently not being used) 
 
-`server.js` Contains calls to movie review APIs and handling of JSON data (Node.js)
+`server.js` Contains calls to movie review APIs and handling of JSON data (Node.js)  
+*Note: As my focus has been front-end, my mentor helped me out by coding this Node.js functionality. However, I have reviewed the code extensively and understand most what is going on.*
 
 ### Production
 Grunt builds and outputs all saved changes made in the development directory, `app/`, to production directory, `dist/`, like so:
