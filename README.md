@@ -41,13 +41,16 @@ app/
  |__scripts/
  |   |__app.js
  |__templates/
- |   |__home.html
+ |   |__home.html 
+ server.js
 ```
 
 `pages/__index.html` The HTML view - contains AngularJS directives  
 `sass/__styles.scss` SASS file for styling. Grunt will automatically detect saved changes to this file and auto-compile them to poduction css (located in `/dist/css`).  
 `scripts/__app.js` File containing all AngularJS functionality  
-`templates/__home.html` For HTML partials or smaller sets of HTML (currently not being used)  
+`templates/__home.html` For HTML partials or smaller sets of HTML (currently not being used) 
+
+`server.js` Contains calls to movie review APIs and handling of JSON data (Node.js)
 
 ### Production
 Grunt builds and outputs all saved changes made in the development directory, `app/`, to production directory, `dist/`, like so:
