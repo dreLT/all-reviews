@@ -51,7 +51,7 @@ app/
 `templates/__home.html` For HTML partials or smaller sets of HTML (currently not being used) 
 
 `server.js` Contains calls to movie review APIs and handling of JSON data (Node.js)  
-*Note: As my focus has been front-end, my mentor helped me out by coding this Node.js functionality. However, I have reviewed the code extensively and understand most what is going on.*
+*Note: As my focus has been front-end, my mentor helped me out by coding this functionality - making the calls to the APIs and mapping the JSON data. However, I have reviewed the code extensively and understand most what is going on.*
 
 ### Production
 Grunt builds and outputs all saved changes made in the development directory, `app/`, to production directory, `dist/`, like so:
